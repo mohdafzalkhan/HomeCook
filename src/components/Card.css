@@ -1,0 +1,124 @@
+/* Card.css */
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.custom-card {
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease;
+  width: 100%;
+  max-width: 300px;
+  border: 1px solid #e9ecef;
+}
+
+.custom-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.price-badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: #28a745;
+  color: white;
+  padding: 0.3rem 0.6rem;
+  font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 15px;
+  z-index: 2;
+}
+
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #333;
+  text-align: center;
+}
+
+.dropdown-group {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.form-select {
+  flex: 1;
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  background: white;
+  font-size: 0.9rem;
+}
+
+.form-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.btn-gradient {
+  width: 100%;
+  padding: 0.6rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: 600;
+  background: #007bff;
+  color: white;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-gradient:hover {
+  background: #0056b3;
+}
+
+.btn-gradient:active {
+  background: #004085;
+}
+
+@media (max-width: 768px) {
+  .custom-card {
+    max-width: 280px;
+  }
+  
+  .card-img-top {
+    height: 160px;
+  }
+  
+  .card-body {
+    padding: 0.8rem;
+  }
+  
+  .card-title {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .custom-card {
+    max-width: 100%;
+  }
+  
+  .dropdown-group {
+    flex-direction: column;
+  }
+}
