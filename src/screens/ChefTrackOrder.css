@@ -1,0 +1,220 @@
+/* ChefTrackOrders.css */
+
+/* Container */
+.track-container {
+  padding: 30px 20px;
+  max-width: 1400px;
+  margin: auto;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+/* Page Title */
+.track-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 25px;
+  text-align: center;
+  color: #222;
+  letter-spacing: 0.5px;
+}
+
+/* Card */
+.track-card {
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 25px;
+  margin-bottom: 25px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.track-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+}
+
+.track-card p {
+  margin: 6px 0;
+  font-size: 0.95rem;
+  color: #555;
+}
+
+/* Progress Bar */
+.track-progress-bar {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+  position: relative;
+}
+
+.track-step {
+  text-align: center;
+  flex: 1;
+  position: relative;
+}
+
+.track-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  top: 12px;
+  right: -50%;
+  width: 100%;
+  height: 3px;
+  background-color: #e0e0e0;
+  z-index: -1;
+  border-radius: 2px;
+}
+
+.track-step.active::after {
+  background-color: #4caf50;
+}
+
+.step-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 auto 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.track-step.active .step-circle {
+  background-color: #4caf50;
+  box-shadow: 0 0 6px rgba(76, 175, 80, 0.5);
+}
+
+.step-label {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* Tracking Updates */
+.track-updates {
+  margin-top: 15px;
+}
+
+.track-updates h5 {
+  font-size: 1.05rem;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.track-updates ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.track-updates li {
+  font-size: 0.88rem;
+  margin-bottom: 5px;
+  padding: 6px 8px;
+  border-left: 3px solid #4caf50;
+  background-color: #f5f5f5;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.track-updates li:hover {
+  background-color: #e8f5e9;
+}
+
+/* Status Buttons */
+.status-buttons {
+  margin-top: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.status-buttons button {
+  padding: 7px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.status-buttons button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+/* Color-coded status buttons */
+.btn.placed { background-color: #6c757d; }
+.btn.accepted { background-color: #007bff; }
+.btn.cooking { background-color: #fd7e14; }
+.btn.out-for-delivery { background-color: #6f42c1; }
+.btn.delivered { background-color: #28a745; }
+.btn.cancelled { background-color: #dc3545; }
+
+.btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Items */
+.order-card {
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.order-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.order-card-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+}
+
+.order-card h5 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.order-card .badge {
+  font-size: 0.8rem;
+}
+
+/* Header Actions */
+.header-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 25px;
+}
+
+.header-actions .btn {
+  font-weight: 500;
+  padding: 8px 18px;
+  border-radius: 6px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .track-progress-bar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .track-step:not(:last-child)::after {
+    width: 2px;
+    height: 40px;
+    top: 100%;
+    left: 12px;
+    right: auto;
+  }
+}
