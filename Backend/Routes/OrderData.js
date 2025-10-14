@@ -3,25 +3,25 @@ const router = express.Router();
 const Order = require('../models/Orders');
 
 router.post('/orderData', async (req, res) => {
-    let data = req.body.order_data;
-    await data.splice(0, 0, { Order_date: req.body.order_date });
-
-    try {
-        const newOrder = await Order.create({
+  try {
+   const newOrder = await Order.create({
   email: req.body.email,
-  items: req.body.order_data,
-  order_date: req.body.order_date,
+  items: req.body.order_data,  // keep items as is
+  order_date: new Date(),      // ✅ keep this, ensures proper Date object
   status: "Placed",
   estimatedDeliveryTime: "30–40 min",
-  trackingUpdates: [{ message: "Order placed successfully" }]
+  trackingUpdates: [{ message: "Order placed successfully", timestamp: new Date() }]
 });
-res.status(200).json({ success: true, message: "Order placed successfully", order: newOrder });
 
-    } catch (error) {
-        console.error(error.message);
-        res.status(500).json({ success: false, message: error.message });
-    }
+
+
+    res.status(200).json({ success: true, message: "Order placed successfully", order: newOrder });
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json({ success: false, message: error.message });
+  }
 });
+
 // Fetch all orders for a user along with tracking info
 router.post('/myOrderData', async (req, res) => {
   try {
@@ -76,9 +76,10 @@ router.get("/track/:orderId", async (req, res) => {
 });
 
 // Get all orders for chefs
+// Get all orders for chefs
 router.get("/allOrders", async (req, res) => {
   try {
-    const orders = await Order.find({});
+    const orders = await Order.find({}).sort({ createdAt: -1 }); // newest first
     res.json(orders);
   } catch (err) {
     console.error("Error fetching orders:", err);
@@ -86,6 +87,8 @@ router.get("/allOrders", async (req, res) => {
   }
 });
 
+
+// Update order status
 // Update order status
 router.put("/updateStatus/:orderId", async (req, res) => {
   const { orderId } = req.params;
@@ -101,7 +104,10 @@ router.put("/updateStatus/:orderId", async (req, res) => {
     if (!order) return res.status(404).json({ success: false, message: "Order not found" });
 
     order.status = status;
+    // Initialize trackingUpdates if undefined
+    order.trackingUpdates = order.trackingUpdates || [];
     order.trackingUpdates.push({ message: `Order ${status}`, timestamp: new Date() });
+
     await order.save();
 
     res.json({ success: true, order });
@@ -110,6 +116,7 @@ router.put("/updateStatus/:orderId", async (req, res) => {
     res.status(500).json({ success: false, message: "Server error" });
   }
 });
+
 
 // Update order status by email
 router.put("/updateStatusByEmail/:email", async (req, res) => {

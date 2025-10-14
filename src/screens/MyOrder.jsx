@@ -72,7 +72,7 @@ export default function MyOrder() {
             const validItems = order.items?.filter(item => item.qty && item.qty > 0) || [];
 
             return (
-              <div key={order._id} className="mb-5">
+              <div key={order._id} className="mb-4">
                 <h6 className="order-date text-center mb-3">
                   <span className="badge bg-light text-dark shadow-sm px-3 py-2">
                     Order ID: {order._id}
@@ -104,16 +104,14 @@ export default function MyOrder() {
                       </li>
                     ))}
                   </ul>
-                </div>
-
-                {/* Items in order */}
+                   {/* Items in order */}
                 <div className="row justify-content-center gx-4 gy-4">
                   {validItems.map((item, itemIdx) => (
                     <div key={itemIdx} className="col-12 col-sm-6 col-md-4 col-lg-3">
                       <div className="order-card shadow-sm rounded-4 overflow-hidden h-100">
                         <img
                           src={item.img || "https://via.placeholder.com/150"}
-                          alt={item.name || "No name"}
+                          alt={item.title || "No name"}
                           className="order-card-img"
                         />
                         <div className="p-3">
@@ -128,6 +126,9 @@ export default function MyOrder() {
                     </div>
                   ))}
                 </div>
+                </div>
+
+               
               </div>
             );
           })

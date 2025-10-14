@@ -27,7 +27,8 @@ export default function Cart() {
         body: JSON.stringify({
           order_data: cartData,
           email: userEmail,
-          order_date: new Date().toLocaleString(),
+          order_date: new Date()  // Keep as Date object, not string
+
         }),
       });
 
