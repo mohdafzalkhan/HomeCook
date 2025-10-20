@@ -16,7 +16,8 @@ app.use(
       "https://home-cook-git-master-mohdafzalkhans-projects.vercel.app",
       "https://home-cook-mlgth5ah5-mohdafzalkhans-projects.vercel.app",
       "https://home-cook-tan.vercel.app"
-    ], // add your PC's IP here
+    ],
+     credentials: true
   })
 );
 
