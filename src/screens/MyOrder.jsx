@@ -18,7 +18,7 @@ export default function MyOrder() {
       return;
     }
 
-    const res = await fetch('http://localhost:5000/api/myOrderData', {
+    const res = await fetch(`${API_URL}/api/myOrderData`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ email: userEmail }),

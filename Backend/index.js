@@ -13,6 +13,9 @@ app.use(
       "http://localhost:3000",
       "http://localhost:3001",
       "http://192.168.38.20:3000",
+      "https://home-cook-git-master-mohdafzalkhans-projects.vercel.app",
+      "https://home-cook-mlgth5ah5-mohdafzalkhans-projects.vercel.app",
+      "https://home-cook-tan.vercel.app/"
     ], // add your PC's IP here
   })
 );

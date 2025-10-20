@@ -13,7 +13,7 @@ export default function ChefTrackOrders() {
   // Fetch all orders
  const fetchOrders = async () => {
   try {
-    const res = await fetch("http://localhost:5000/api/allOrders");
+    const res = await fetch(`${API_URL}/api/allOrders`);
     const data = await res.json();
 
     if (!res.ok) throw new Error(data.message || "Failed to fetch orders");
@@ -47,7 +47,7 @@ export default function ChefTrackOrders() {
     if (!orderId) return;
 
     try {
-      const res = await fetch(`http://localhost:5000/api/updateStatus/${orderId}`, {
+      const res = await fetch(`${API_URL}/api/updateStatus/${orderId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),

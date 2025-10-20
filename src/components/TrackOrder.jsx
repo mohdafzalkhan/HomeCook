@@ -10,7 +10,7 @@ export default function TrackOrder() {
     const fetchTracking = async () => {
       try {
         if (!orderId) throw new Error("Order ID not found in localStorage");
-        const res = await fetch(`http://localhost:5000/api/order/track/${orderId}`);
+        const res = await fetch(`${API_URL}/api/order/track/${orderId}`);
         if (!res.ok) throw new Error("Failed to fetch tracking info");
 
         const data = await res.json();

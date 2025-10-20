@@ -31,7 +31,7 @@ export default function ChefDashboard() {
   // ✅ Fetch food and categories
   const loadFoodData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/foodData", {
+      const response = await fetch(`${API_URL}/api/foodData`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
       });
@@ -47,7 +47,7 @@ export default function ChefDashboard() {
 
   const loadCategories = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/getCategories");
+      const res = await fetch(`${API_URL}/api/getCategories`);
       const data = await res.json();
       setCategories(data);
     } catch (error) {
@@ -59,7 +59,7 @@ export default function ChefDashboard() {
   const handleAddCategory = async () => {
     if (!newCategory.trim()) return alert("Enter category name");
     try {
-      const res = await fetch("http://localhost:5000/api/addCategory", {
+      const res = await fetch(`${API_URL}/api/addCategory`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export default function ChefDashboard() {
   const handleAddItem = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch("http://localhost:5000/api/addFoodItem", {
+      const response = await fetch(`${API_URL}/api/addFoodItem`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -117,7 +117,7 @@ export default function ChefDashboard() {
     e.preventDefault();
     try {
       const response = await fetch(
-        `http://localhost:5000/api/updateFoodItem/${editingItem._id}`,
+        `${API_URL}/api/updateFoodItem/${editingItem._id}`,
         {
           method: "PUT",
           headers: {
@@ -145,7 +145,7 @@ export default function ChefDashboard() {
     if (window.confirm("Are you sure you want to delete this item?")) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/deleteFoodItem/${itemId}`,
+          `${API_URL}/api/deleteFoodItem/${itemId}`,
           {
             method: "DELETE",
             headers: {

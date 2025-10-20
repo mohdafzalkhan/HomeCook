@@ -10,7 +10,7 @@ export default function Signup() {
         e.preventDefault();
         setIsSubmitting(true);
         try {
-            const response = await fetch("http://localhost:5000/api/createuser", {
+            const response = await fetch(`${API_URL}/api/createuser`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
