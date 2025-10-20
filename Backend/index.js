@@ -16,10 +16,15 @@ app.use(
       "https://home-cook-git-master-mohdafzalkhans-projects.vercel.app",
       "https://home-cook-mlgth5ah5-mohdafzalkhans-projects.vercel.app",
       "https://home-cook-tan.vercel.app"
+      
     ],
      credentials: true
   })
 );
+app.use((req, res, next) => {
+  console.log("[DEBUG] ORIGIN:", req.headers.origin);
+  next();
+});
 
 app.use(express.json());
 
