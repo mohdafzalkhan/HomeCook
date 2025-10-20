@@ -2,7 +2,7 @@
 const express = require("express");
 const router = express.Router();
 
-router.post("/foodData", (req, res) => {
+router.get("/foodData", (req, res) => {
   try {
     if (!global.food_items || !global.food_categories) {
       return res.status(500).json({ error: "Food items or categories data not loaded" });
