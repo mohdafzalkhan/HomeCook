@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
 import "./MyOrder.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function MyOrder() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);

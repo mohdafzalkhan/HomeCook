@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ChefTrackOrder.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function ChefTrackOrders() {
   const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -4,7 +4,7 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 import 'bootstrap/dist/js/bootstrap.bundle.min';
 import './Home.css';
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function Home() {
   const [foodCat, setFoodCat] = useState([]);
   const [foodItems, setFoodItems] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "./ChefDashboard.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function ChefDashboard() {
   const [foodItems, setFoodItems] = useState([]);
   const [categories, setCategories] = useState([]);

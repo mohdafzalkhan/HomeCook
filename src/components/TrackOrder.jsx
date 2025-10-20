@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./TrackOrder.css";
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function TrackOrder() {
   const [tracking, setTracking] = useState(null);
   const [error, setError] = useState("");
