@@ -5,7 +5,7 @@ const mongoDB = require("./db");
 const mongoose = require("mongoose");
 
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(
   cors({
