@@ -8,7 +8,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "start": "node index.js"
+    "start": "node Backend/index.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
