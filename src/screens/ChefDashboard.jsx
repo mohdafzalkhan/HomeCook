@@ -314,6 +314,84 @@ export default function ChefDashboard() {
             </div>
           </div>
         )}
+        {editingItem && (
+  <div className="modal-overlay">
+    <div className="modal-content">
+      <h2>Edit Food Item</h2>
+      <form onSubmit={handleUpdateItem}>
+        <input
+          type="text"
+          name="name"
+          placeholder="Item Name"
+          value={editingItem.name}
+          onChange={(e) => handleInputChange(e, true)}
+          required
+        />
+        <input
+          type="url"
+          name="img"
+          placeholder="Image URL"
+          value={editingItem.img}
+          onChange={(e) => handleInputChange(e, true)}
+          required
+        />
+        <select
+          name="CategoryName"
+          value={editingItem.CategoryName}
+          onChange={(e) => handleInputChange(e, true)}
+          required
+        >
+          <option value="">Select Category</option>
+          {categories.map((cat) => (
+            <option key={cat._id} value={cat.CategoryName}>
+              {cat.CategoryName}
+            </option>
+          ))}
+        </select>
+        <textarea
+          name="description"
+          placeholder="Description"
+          rows="3"
+          value={editingItem.description}
+          onChange={(e) => handleInputChange(e, true)}
+          required
+        />
+        <div className="price-section">
+          <h4>Pricing</h4>
+          <input
+            type="number"
+            placeholder="Half Price"
+            value={editingItem.options[0]?.half || ""}
+            onChange={(e) =>
+              handlePriceChange(0, "half", e.target.value, true)
+            }
+          />
+          <input
+            type="number"
+            placeholder="Full Price"
+            value={editingItem.options[0]?.full || ""}
+            onChange={(e) =>
+              handlePriceChange(0, "full", e.target.value, true)
+            }
+          />
+        </div>
+        <div className="d-flex justify-content-end gap-2 mt-3">
+          <button type="submit" className="btn btn-warning">
+            Update Item
+          </button>
+          <button
+            type="button"
+            className="btn btn-secondary"
+            onClick={() => setEditingItem(null)}
+          >
+            Cancel
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+)}
+
 
         {/* Food Item List */}
         {categories.map((category) => {
