@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 import { useCart, useDispatchCart } from '../components/ContextReducer';
 import DeleteIcon from '@mui/icons-material/Delete';
 import './Cart.css';
-
+const API_URL = import.meta.env.VITE_API_URL;
 export default function Cart() {
   const cartData = useCart();
   const dispatch = useDispatchCart();
   const [modalMessage, setModalMessage] = useState('');
   const [showModal, setShowModal] = useState(false);
-
+const API_URL = import.meta.env.VITE_API_URL;
   const totalPrice = cartData.reduce((total, food) => total + food.price, 0);
 
   const handleCheckOut = async () => {
