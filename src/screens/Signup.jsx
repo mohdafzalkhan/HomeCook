@@ -27,7 +27,8 @@ export default function Signup() {
             console.log(json);
             if (json.success) {
                 alert("Account created successfully!");
-                window.location.href = "/login";
+                navigate("/login");
+
             } else {
                 if (json.errors && json.errors.length > 0) {
                     alert("Validation errors: " + json.errors.map(err => err.msg).join(", "));
