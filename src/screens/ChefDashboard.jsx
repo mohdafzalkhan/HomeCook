@@ -198,16 +198,23 @@ export default function ChefDashboard() {
         <div className="header-content">
           <h1>👨‍🍳 Chef Dashboard</h1>
           <div className="header-actions">
-            <button
-              className="btn btn-primary me-3"
-              onClick={goToTrackOrders}
-            >
-              Track Orders
-            </button>
-            <button className="btn btn-danger" onClick={handleLogout}>
-              Logout
-            </button>
-          </div>
+  <button
+    className="btn btn-primary me-3"
+    onClick={goToTrackOrders}
+  >
+    Track Orders
+  </button>
+  <button
+    className="btn-add-item"
+    onClick={() => setShowAddForm(true)}
+  >
+    Add Food Item
+  </button>
+  <button className="btn-danger" onClick={handleLogout}>
+    Logout
+  </button>
+</div>
+
         </div>
       </header>
 
