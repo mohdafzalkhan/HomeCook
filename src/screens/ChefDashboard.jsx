@@ -32,7 +32,7 @@ export default function ChefDashboard() {
   const loadFoodData = async () => {
     try {
       const response = await fetch(`${API_URL}/api/foodData`, {
-        method: "POST",
+        method: "GET",
         headers: { "Content-Type": "application/json" },
       });
       const data = await response.json();

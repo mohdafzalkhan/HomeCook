@@ -16,7 +16,7 @@ export default function Home() {
     try {
       setLoading(true);
       const response = await fetch(`${API_URL}/api/foodData`, {
-        method: "POST",
+        method: "GET",
         headers: { "Content-Type": "application/json" },
       });
 

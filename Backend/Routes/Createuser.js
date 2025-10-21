@@ -5,7 +5,7 @@ const { body, validationResult } = require("express-validator");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
-const jwtSecret = "thisisajwtsecret"; // You may want to move this to an environment variable
+const jwtSecret = "thisisajwtsecret"; 
 
 // ROUTE: Create user
 router.post(
