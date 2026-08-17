@@ -26,4 +26,4 @@ This is a full-stack **MERN** (MongoDB, Express.js, React, Node.js) project deve
 
 ## 📧 Contact
 For any queries, reach out via **GitHub Issues** or email at:  
-✉️ **akshatkmistry007@gmail.com**  
+✉️ **mohammadafzalkhanking@gmail.com**  
